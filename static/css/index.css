@@ -1,0 +1,8 @@
+.test{
+	font-size: 0.9rem;
+}
+*,
+::after,
+::before{
+	box-sizing: border-box;
+}

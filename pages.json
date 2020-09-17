@@ -1,0 +1,51 @@
+{
+	"pages": [
+		{
+			"path": "pages/service/service",
+			"style": {
+				"navigationBarTitleText": "智慧医院"
+			}
+		}, {
+			"path": "pages/info/info",
+			"style": {
+				"navigationBarTitleText": "智慧医院"
+			}
+		}, {
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "个人中心"
+			}
+		}
+	    ,{
+            "path" : "pages/info/test",
+            "style" : {}
+        }
+    ],
+	"globalStyle": {
+		"navigationStyle": "custom"
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#4379EE",
+		"borderStyle": "white",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/service/service",
+				"iconPath": "static/img/service.png",
+				"selectedIconPath": "static/img/serviceSelected.png",
+				"text": "医疗服务"
+			}, {
+				"pagePath": "pages/info/info",
+				"iconPath": "static/img/info.png",
+				"selectedIconPath": "static/img/infoSelected.png",
+				"text": "医院信息"
+			},
+			{
+				"pagePath": "pages/user/user",
+				"iconPath": "static/img/user.png",
+				"selectedIconPath": "static/img/userSelected.png",
+				"text": "个人中心"
+			}
+		]
+	}
+}
