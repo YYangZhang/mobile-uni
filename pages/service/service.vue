@@ -3,6 +3,7 @@
 		service
 		
 		test github2
+		test github3
 	</view>
 </template>
 
