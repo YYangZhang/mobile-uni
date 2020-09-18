@@ -1,6 +1,8 @@
 <template>
 	<view>
 		user
+		
+		test github
 	</view>
 </template>
 
