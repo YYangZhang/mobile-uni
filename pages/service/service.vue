@@ -1,6 +1,8 @@
 <template>
 	<view style="border: red 1px solid;height: 100%;" @click="test">
 		service
+		
+		test github2
 	</view>
 </template>
 
