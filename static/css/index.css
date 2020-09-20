@@ -6,3 +6,8 @@
 ::before{
 	box-sizing: border-box;
 }
+
+	/* swipper中img的样式 */
+	.swiperimg {
+		width: 100%;
+	}

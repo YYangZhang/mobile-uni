@@ -24,14 +24,14 @@
 		<uni-notice-bar :speed="50" showIcon="true" :scrollable="scrollable" single="true" :text="msg" backgroundColor="#ffffff"
 		 color="#333333" style="margin-bottom: 0px;"></uni-notice-bar>
 
-		<view class="gridTotal" v-for="(service,i) in serviceList">
+		<view class="gridTotal" v-for="(service,i) in serviceList" :key="i">
 			<view class="gridTitle">
 				<text class="titleicon">|</text>
 				<text>{{service.title}}</text>
 			</view>
 			<view class="gridContent">
 				<uni-grid :column="4" :show-border="false" :square="false">
-					<uni-grid-item v-for="(item,j) in service.list">
+					<uni-grid-item v-for="(item,j) in service.list" :key="j">
 						<view class="itemtotal" @tap="gotoMore(item.url,item.text)">
 							<view class="icondiv">
 								<text class="iconfont" :class="item.icon"></text>
@@ -174,10 +174,6 @@
 </script>
 
 <style scoped>
-	/* swipper中img的样式 */
-	.swiperimg {
-		width: 100%;
-	}
 
 	/* 整体的div eg:门诊服务 */
 	.gridTotal {
