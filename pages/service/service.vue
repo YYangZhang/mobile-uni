@@ -82,7 +82,7 @@
 							}, {
 								icon: 'iconorder',
 								text: '预约挂号',
-								url:'../info/test'
+								url:'../views/orderRegister1'
 							},
 							{
 								icon: 'iconfuwutai',
