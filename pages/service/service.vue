@@ -22,7 +22,7 @@
 		<!-- single // true为单行 -->
 		<!-- scrollable // 是否滚动 -->
 		<uni-notice-bar :speed="50" showIcon="true" :scrollable="scrollable" single="true" :text="msg" backgroundColor="#ffffff"
-		 color="#333333" style="margin-bottom: 0px;"></uni-notice-bar>
+		 color="#333333" style="margin-bottom: 0px;" @click="gotoMore('../views/notice')"></uni-notice-bar>
 
 		<view class="gridTotal" v-for="(service,i) in serviceList" :key="i">
 			<view class="gridTitle">
@@ -132,7 +132,7 @@
 							{
 								icon: 'iconxinwen',
 								text: '新闻动态',
-								url:'../info/test'
+								url:'../views/news'
 							},
 						]
 					},

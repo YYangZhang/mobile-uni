@@ -1,13 +1,37 @@
-.test{
+.test {
 	font-size: 0.9rem;
 }
+
 *,
 ::after,
-::before{
+::before {
 	box-sizing: border-box;
 }
 
-	/* swipper中img的样式 */
-	.swiperimg {
-		width: 100%;
-	}
+.fullscreen{
+	height: 100%;
+}
+/* swipper中img的样式 */
+.swiperimg {
+	width: 100%;
+}
+
+.contentbottom {
+	border-bottom: #e4e4e4 1px dashed;
+}
+
+.block {
+	display: block;
+}
+
+.primarybtn {
+	width: 80%;
+	border-radius: 25px;
+	background-color: #268EFD !important;
+	color: #FFFFFF;
+	line-height: 36px;
+	font-family: "Arial Negreta", Arial, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 16px;
+}

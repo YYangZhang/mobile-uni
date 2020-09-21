@@ -14,27 +14,27 @@
 		</view>
 		<view class="flex-row">
 			<view class="flex-left">
-				<view class="left-icon"><text class="iconfont iconliulanqi"></text></view>
+				<view class="left-icon blue"><text class="iconfont iconliulanqi"></text></view>
 			</view>
 			<view class="flex-center"><text>医院官网</text></view>
 			<view class="flex-right">
-				<text @click="locaolWeb(web)">{{ web }}</text>
+				<text class="underline" @click="locaolWeb(web)">{{ web }}</text>
 			</view>
 		</view>
 
 		<view class="flex-row">
 			<view class="flex-left">
-				<view class="left-icon"><text class="iconfont icondianhua"></text></view>
+				<view class="left-icon green"><text class="iconfont icondianhua"></text></view>
 			</view>
 			<view class="flex-center"><text>医院电话</text></view>
 			<view class="flex-right">
-				<text @click="call(tel)">{{ tel }}</text>
+				<text class="underline" @click="call(tel)">{{ tel }}</text>
 			</view>
 		</view>
 
 		<view class="flex-row">
 			<view class="flex-left">
-				<view class="left-icon"><text class="iconfont icondizhi"></text></view>
+				<view class="left-icon yellow"><text class="iconfont icondizhi"></text></view>
 			</view>
 			<view class="flex-center"><text>医院地址</text></view>
 			<view class="flex-right"><text>江苏省南京市宁六路219号</text></view>
@@ -42,7 +42,7 @@
 
 		<view class="flex-row">
 			<view class="flex-left">
-				<view class="left-icon"><text class="iconfont icongongjiao"></text></view>
+				<view class="left-icon darkblue"><text class="iconfont icongongjiao"></text></view>
 			</view>
 			<view class="flex-center"><text>乘车路线</text></view>
 			<view class="flex-right">
@@ -124,7 +124,6 @@ export default {
 .left-icon {
 	width: 33px;
 	height: 33px;
-	background-color: #7fcef5;
 	border-radius: 6px;
 	text-align: center;
 	display: table-cell;
@@ -183,5 +182,21 @@ export default {
 	font-size: 13px;
 	word-break: break-all;
 	text-indent: 1.5rem;
+}
+.underline{
+	/* text-decoration: underline; */
+	border-bottom: #999999 1px solid;
+}
+.blue{
+	background-color: #7fcef5;
+}
+.green{
+	background-color: #5cca8b;
+}
+.yellow{
+	background-color: #feb12b;
+}
+.darkblue{
+	background-color: #0099cc;
 }
 </style>

@@ -1,28 +1,73 @@
 {
-	"pages": [
-		{
-			"path": "pages/service/service",
-			"style": {
-				"navigationBarTitleText": "智慧医院"
-			}
-		}, {
-			"path": "pages/info/info",
-			"style": {
-				"navigationBarTitleText": "智慧医院"
-			}
-		}, {
-			"path": "pages/user/user",
-			"style": {
-				"navigationBarTitleText": "个人中心"
-			}
+	"pages": [{
+		"path": "pages/service/service",
+		"style": {
+			"navigationBarTitleText": "智慧医院"
 		}
-	    ,{
-            "path" : "pages/info/test",
+	}, {
+		"path": "pages/info/info",
+		"style": {
+			"navigationBarTitleText": "智慧医院"
+		}
+	}, {
+		"path": "pages/user/user",
+		"style": {
+			"navigationBarTitleText": "个人中心"
+		}
+	}, {
+		"path": "pages/info/test",
+		"style": {
+			"navigationBarTitleText": "测试页面"
+		}
+	}, {
+		// 已取消
+		"path": "pages/views/canceled",
+		"style": {
+			"navigationBarTitleText": "详情"
+		}
+	}, {
+		// 已就诊
+		"path": "pages/views/finished",
+		"style": {
+			"navigationBarTitleText": "详情"
+		}
+	}, {
+		// 新闻列表
+		"path": "pages/views/news",
+		"style": {
+			"navigationBarTitleText": "新闻动态"
+		}
+	}, {
+		// 新闻详情
+		"path": "pages/views/newsDetail",
+		"style": {
+			"navigationBarTitleText": "新闻动态"
+		}
+	},
+	{
+		// 公告列表
+		"path": "pages/views/notice",
+		"style": {
+			"navigationBarTitleText": "最新公告"
+		}
+	},
+	{
+		// 公告详情
+		"path": "pages/views/noticeDetail",
+		"style": {
+			"navigationBarTitleText": "最新公告"
+		}
+	}    ,{
+			// 预约挂号
+            "path" : "pages/views/orderRegister",
             "style" : {
-							"navigationBarTitleText": "测试页面"
-						}
+				"navigationBarTitleText":"预约挂号"
+			}
         }
     ],
+	
+	
+	// tarbar设置
 	"globalStyle": {
 		"navigationStyle": "custom"
 	},
