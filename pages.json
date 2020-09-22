@@ -58,17 +58,24 @@
 				"navigationBarTitleText": "最新公告"
 			}
 		}, {
-			// 预约挂号
+			// 预约挂号1
 			"path": "pages/views/orderRegister1",
 			"style": {
 				"navigationBarTitleText": "预约挂号"
 			}
 		},
 		{
-			// 预约挂号
+			// 预约挂号2
 			"path": "pages/views/orderRegister2",
 			"style": {
 				"navigationBarTitleText": "预约挂号"
+			}
+		},
+		{
+			// 预约挂号3
+			"path": "pages/views/orderRegister3",
+			"style": {
+				"navigationBarTitleText": "门诊"
 			}
 		}
 	],

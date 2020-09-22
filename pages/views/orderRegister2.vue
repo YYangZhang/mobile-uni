@@ -1,6 +1,49 @@
 <template>
-	<view>
-		{{params}}
+	<view class="fullscreen">
+		<view class="dayselect">
+			<uni-grid :column="6" :show-border="false" :square="false">
+				<uni-grid-item v-for="(item,i) in days" :key="i" :class="{ dayselected: i == current }">
+					<view class="griditem" @click="chooseDate(i)">
+						<view class="zhou">
+							<text>周{{item.zhou}}</text>
+						</view>
+						<view class="day">
+							<text>{{item.month}}.{{item.date}}</text>
+						</view>
+					</view>
+				</uni-grid-item>
+			</uni-grid>
+		</view>
+		<uni-segmented-control :current="current1" :values="items" @clickItem="onClickItem" style-type="text" active-color="#199ed8"></uni-segmented-control>
+		<view class="content">
+			<view v-if="current1 === 0">
+				<view class="flex-row" v-for="(type1,j) in mztype1" :key="j" @click="gotoOrder(type1,1)">
+					<view class="flex-left">
+						<image :src="type1.img"></image>
+					</view>
+					<view class="flex-right">
+						<text class="orsp1">{{type1.docName}}</text>
+						<text class="orsp2">{{type1.docId}}</text>
+						<text class="block orsp3">
+							擅长：{{type1.chara}}
+						</text>
+					</view>
+				</view>
+			</view>
+			<view v-if="current1 === 1">
+				<view class="flex-row" v-for="(type2,h) in mztype2" :key="h" @click="gotoOrder(type2,2)">
+					<view class="flex-left">
+						<image :src="type2.img"></image>
+					</view>
+					<view class="flex-right">
+						<text class="orsp1">{{type2.keshiName}}</text>
+						<text class="block orsp3">
+							科室特色：{{type2.chara}}
+						</text>
+					</view>
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -8,19 +51,214 @@
 	export default {
 		data() {
 			return {
-				params:''
+				params: 'error', //接受上个页面传过来的科室信息
+				current: 0,
+				current1: 0,
+				items: ['专家门诊', '普通门诊'], //内容选择器
+				days: [],
+				mztype1: [{
+						img: '../../static/img/1.jpg',
+						docName: '药无忌',
+						docId: '主任医师',
+						chara: '消化内镜常规开展胃镜、十二指肠、消化不良等'
+					},
+					{
+						img: '../../static/img/2.jpg',
+						docName: '药无忌',
+						docId: '主任医师',
+						chara: '消化内镜常规开展胃镜、十二指肠、消化不良等'
+					},
+					{
+						img: '../../static/img/3.jpg',
+						docName: '药无忌',
+						docId: '主任医师',
+						chara: '消化内镜常规开展胃镜、十二指肠、消化不良等'
+					},
+					{
+						img: '../../static/img/4.jpg',
+						docName: '药无忌',
+						docId: '主任医师',
+						chara: '消化内镜常规开展胃镜、十二指肠、消化不良等'
+					}
+				],
+				mztype2: [{
+					img: '../../static/img/keshi.png',
+						keshiName: '外科',
+						chara: '消化内镜常规开展胃镜、十二指肠、消化不良等'
+					},
+					{
+						img: '../../static/img/keshi.png',
+						keshiName: '内科',
+						chara: '消化内镜常规开展胃镜、十二指肠、消化不良等'
+					},
+					{
+						img: '../../static/img/keshi.png',
+						keshiName: '血液科',
+						chara: '消化内镜常规开展胃镜、十二指肠、消化不良等'
+					},
+					{
+						img: '../../static/img/keshi.png',
+						keshiName: '皮肤科',
+						chara: '消化内镜常规开展胃镜、十二指肠、消化不良等'
+					},
+					{
+						img: '../../static/img/keshi.png',
+						keshiName: '耳鼻喉科',
+						chara: '消化内镜常规开展胃镜、十二指肠、消化不良等'
+					}
+				],
 			}
 		},
 		methods: {
-			
+			getDays(day) {
+				// 获取当日及后几日的信息
+				// params：day 想获取多少天就写多少
+				var now = new Date();
+				var nowTime = now.getTime();
+				var oneDayTime = 24 * 60 * 60 * 1000;
+				for (var i = 0; i < day; i++) {
+					var showTime = nowTime + i * oneDayTime;
+					var myDate = new Date(showTime);
+					var year = myDate.getFullYear();
+					var month = myDate.getMonth() + 1;
+					if(month > 0 && month < 10){
+						month = '0'+ month
+					}
+					var date = myDate.getDate();
+					if(date > 0 && date < 10){
+						date = '0'+ date
+					}
+					var str = '日一二三四五六'.charAt(myDate.getDay());
+					this.days.push({
+						year: year,
+						month: month,
+						date: date,
+						zhou: str
+					});
+				}
+				console.log(this.days);
+			},
+			chooseDate(i) {
+				// 选择预约日期
+				var v = this;
+				v.current = i;
+				v.current1 = 0;
+			},
+			onClickItem(e) {
+				// 选择门诊类型
+				if (this.current1 !== e.currentIndex) {
+					this.current1 = e.currentIndex;
+				}
+			},
+			gotoOrder(item, type) {
+				// 去预约界面
+				console.log(item);
+				uni.navigateTo({
+					url: '../views/orderRegister3' + '?item=' + encodeURIComponent(JSON.stringify(item)) + '&type=' + type + '&day=' +
+						encodeURIComponent(JSON.stringify(this.days[this.current]))
+
+				})
+			}
 		},
-		onLoad:function(params){
+		onLoad: function(params) {
 			this.params = params.params;
-			console.log(this.params)
+			this.getDays(6);
 		}
 	}
 </script>
 
 <style scoped>
+	page {
+		height: 100%;
+		background-color: #FFFFFF;
+	}
 
+	.dayselect {
+		padding: 0 10px;
+		text-align: center;
+		color: #333333;
+		border-bottom: #f2f2f2 1px solid;
+	}
+
+	.dayselected {
+		color: #199ed8 !important;
+	}
+
+	.griditem {
+		padding: 12px 0 6px 0;
+	}
+
+	.day {
+		font-family: 'Arial Negreta', 'Arial', sans-serif;
+		font-weight: 700;
+		font-size: 16px;
+	}
+
+	.zhou {
+		font-family: 'Arial Normal', 'Arial', sans-serif;
+		font-weight: 400;
+		font-size: 14px;
+		padding-bottom: 2px;
+	}
+
+	.content {
+		height: calc(100% - 94px);
+		overflow: auto;
+	}
+
+	.flex-row {
+		padding: 10px 20px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		border-bottom: #F2F2F2 1px solid;
+	}
+
+	.flex-left {
+		/* padding: 0 10px; */
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		overflow: hidden;
+		border-radius: 25px;
+	}
+
+
+	.flex-left image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.flex-right {
+		padding-left: 20px;
+		width: calc(100% - 50px);
+		height: 50px;
+	}
+
+	.orsp1 {
+		font-family: "苹方 中等", 苹方, sans-serif;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 18px;
+		color: #000000;
+	}
+
+	.orsp2 {
+		display: inline-block;
+		padding-left: 10px;
+		font-family: "苹方 中等", 苹方, sans-serif;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 14px;
+		color: #ff6600;
+	}
+
+	.orsp3 {
+		padding-top: 10px;
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+	}
 </style>

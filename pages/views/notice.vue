@@ -140,7 +140,6 @@
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: 2;
-		overflow: hidden;
 	}
 
 	.news .news-content .news-contain {
@@ -150,7 +149,6 @@
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: 1;
-		overflow: hidden;
 	}
 
 	.news .news-content .news-title text {
