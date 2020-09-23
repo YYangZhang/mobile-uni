@@ -56,6 +56,7 @@
 				current1: 0,
 				items: ['专家门诊', '普通门诊'], //内容选择器
 				days: [],
+				localObj: {},
 				mztype1: [{
 						img: '../../static/img/1.jpg',
 						docName: '药无忌',
@@ -82,7 +83,7 @@
 					}
 				],
 				mztype2: [{
-					img: '../../static/img/keshi.png',
+						img: '../../static/img/keshi.png',
 						keshiName: '外科',
 						chara: '消化内镜常规开展胃镜、十二指肠、消化不良等'
 					},
@@ -121,12 +122,12 @@
 					var myDate = new Date(showTime);
 					var year = myDate.getFullYear();
 					var month = myDate.getMonth() + 1;
-					if(month > 0 && month < 10){
-						month = '0'+ month
+					if (month > 0 && month < 10) {
+						month = '0' + month
 					}
 					var date = myDate.getDate();
-					if(date > 0 && date < 10){
-						date = '0'+ date
+					if (date > 0 && date < 10) {
+						date = '0' + date
 					}
 					var str = '日一二三四五六'.charAt(myDate.getDay());
 					this.days.push({
@@ -136,7 +137,6 @@
 						zhou: str
 					});
 				}
-				console.log(this.days);
 			},
 			chooseDate(i) {
 				// 选择预约日期
@@ -150,13 +150,55 @@
 					this.current1 = e.currentIndex;
 				}
 			},
+			setLocal(item, type) {
+				var v = this;
+				v.localObj = {};
+				v.localObj['type'] = type;
+				v.localObj['chara'] = item.chara;
+				v.localObj['img'] = item.img;
+				v.localObj['selectedTime'] = '';
+				v.localObj['morning'] = {status:0,time:'11111'};
+				v.localObj['afternoon'] = {status:0,time:'11111'};
+				v.localObj['year'] = v.days[this.current].year;
+				v.localObj['month'] = v.days[this.current].month;
+				v.localObj['date'] = v.days[this.current].date;
+				v.localObj['zhou'] = v.days[this.current].zhou;
+				if (type === 1) {
+					v.localObj['docName'] = item.docName;
+					v.localObj['docId'] = item.docId;
+				} else if (type === 2) {
+					v.localObj['keshiName'] = item.keshiName;
+				}
+
+				// 同步获取 当前 storage 的相关信息
+				// 判断 storage.keys中是否存在 order 若存在则删除
+				try {
+					const res = uni.getStorageInfoSync();
+					if (res.keys.indexOf('order') > -1) {
+						// 从本地缓存中 同步移除指定 order
+						try {
+							uni.removeStorageSync('order');
+						} catch (e) {
+							console.log('移除本地缓存order错误')
+						}
+					}
+				} catch (e) {
+					console.log('获取当前sotrage信息错误')
+				};
+
+				// 将localObj同步存放到本地 order
+				try {
+					uni.setStorageSync('order', JSON.stringify(v.localObj));
+				} catch (e) {
+					console.log('order缓存到本地错误');
+				};
+			},
 			gotoOrder(item, type) {
 				// 去预约界面
-				console.log(item);
+				var v = this;
+				v.setLocal(item, type);
 				uni.navigateTo({
-					url: '../views/orderRegister3' + '?item=' + encodeURIComponent(JSON.stringify(item)) + '&type=' + type + '&day=' +
-						encodeURIComponent(JSON.stringify(this.days[this.current]))
-
+					url: '../views/orderRegister3'
 				})
 			}
 		},
