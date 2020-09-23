@@ -240,6 +240,7 @@
 
 	.content {
 		height: calc(100% - 50px);
+		overflow: auto;
 	}
 
 	.footer {
@@ -369,6 +370,7 @@
 		margin-top: 8px;
 		background-color: #ffffff;
 		padding: 10px;
+		margin-bottom: 10px;
 	}
 
 	.showtime {
