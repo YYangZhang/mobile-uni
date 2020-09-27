@@ -229,6 +229,14 @@
 
 
 			// 有默认就诊人则去调取默认就诊人的信息
+			
+			//判断从哪个页面进入，如果从选择联系人中进入则需要给联系人重新赋值
+			var pages = getCurrentPages();
+			var beforepage = pages[pages.length - 2];
+			console.log(beforepage.route);
+			if (beforepage.route == 'pages/views/orderRegister2'){
+				console.log('success')
+			}
 		}
 	};
 </script>

@@ -78,7 +78,28 @@
 				"navigationBarTitleText": "门诊"
 			}
 		}
-	],
+	    ,{
+			// 选择就诊人
+            "path" : "pages/views/patient/selectPatient",
+            "style" : {
+				"navigationBarTitleText": "常用就诊人"
+			}
+        }
+        ,{
+			// 选择默认就诊人
+            "path" : "pages/views/patient/defaultPatient",
+            "style" : {
+				"navigationBarTitleText": "常用就诊人"
+			}
+        }
+        ,{
+			// 新增、编辑就诊人
+            "path" : "pages/views/patient/editPatient",
+            "style" : {
+				"navigationBarTitleText": ""
+			}
+        }
+    ],
 
 
 	// tarbar设置
