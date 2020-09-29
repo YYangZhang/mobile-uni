@@ -35,3 +35,21 @@
 	font-style: normal;
 	font-size: 16px;
 }
+.regularbtn{
+	width: 80%;
+	border-radius: 25px;
+	background-color: #FFFFFF !important;
+	color: #268efd!important;
+	line-height: 36px;
+	font-family: "Arial Negreta", Arial, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 16px;
+	border: #268efd 1px solid;
+}
+
+.rowflex{
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+}

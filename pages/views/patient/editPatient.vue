@@ -2,82 +2,99 @@
 	<view>
 		<form @submit="formSubmit" @reset="formReset">
 
-			<view style="padding: 0 10px;background-color: #FFFFFF;">
+			<view style="padding: 0 10px 40px 10px;background-color: #FFFFFF;">
 
 				<view class="uni-form-item uni-column">
 					<view class="title">关系</view>
-					<picker @change="bindPickerChange" :value="index" name="relation" :range="relation" style="border: red 1px solid;">
-						<view class="uni-input">{{relation[index]}}</view>
-					</picker>
-				</view>
-				<view class="uni-list-cell">
-					<view class="uni-list-cell-left">
-						当前选择
-					</view>
-					<view class="uni-list-cell-db" style="border: red 1px solid;">
-						<picker @change="bindPickerChange" :value="index" :range="array" style="border: red 1px solid;">
-							<view class="uni-input">{{array[index]}}</view>
+					<view class="content">
+						<picker @change="relationChange" :value="form.relation" name="relation" :range="relation">
+							<view class="uni-input">{{relation[form.relation]}}</view>
 						</picker>
+						<uni-icons type="arrowdown" class="arrowdown" size="16"></uni-icons>
 					</view>
 				</view>
-				
+
 				<view class="uni-form-item uni-column">
 					<view class="title">姓名</view>
-					<input class="uni-input" name="name" placeholder="必填" />
+					<view class="content">
+						<input class="uni-input" name="name" placeholder="必填" :disabled="type == 'edit'" />
+					</view>
 				</view>
 
 				<view class="uni-form-item uni-column">
 					<view class="title">身份证号</view>
-					<input class="uni-input" name="idcard" placeholder="必填" />
+					<view class="content">
+						<input class="uni-input" name="idcard" placeholder="必填" :disabled="type == 'edit'" />
+					</view>
+
 				</view>
 
 				<view class="uni-form-item uni-column">
 					<view class="title">卡类型</view>
-					<input class="uni-input" name="name" placeholder="必填" />
+					<view class="content">
+						<picker @change="cardTypeChange" :value="form.cardType" name="cardType" :range="array">
+							<view class="uni-input">{{array[form.cardType]}}</view>
+						</picker>
+						<uni-icons type="arrowdown" class="arrowdown" size="16"></uni-icons>
+					</view>
 				</view>
 
 				<view class="uni-form-item uni-column">
 					<view class="title">卡号码</view>
-					<input class="uni-input" name="cardno" placeholder="必填" />
+					<view class="content">
+						<input class="uni-input" name="cardno" placeholder="必填" />
+					</view>
 				</view>
 
 				<view class="uni-form-item uni-column">
 					<view class="title">手机号</view>
-					<input class="uni-input" name="phone" placeholder="必填" />
-				</view>
-
-				<view class="uni-form-item uni-column">
-					<view class="title" style="width: 120px;">设为默认就诊人</view>
 					<view class="content">
-						<switch name="switch" />
+						<input class="uni-input" name="phone" placeholder="必填" />
 					</view>
 				</view>
+			</view>
 
+			<view class="uni-form-item uni-column" style="padding: 20px 10px;border-bottom: none;">
+				<view class="title" style="width: 120px;">设为默认就诊人</view>
+				<view class="content" style="text-align: right;">
+					<switch name="default" style="transform: scale(0.7,0.7)" />
+				</view>
 			</view>
 			<view class="uni-btn-v">
-				<button form-type="submit">Submit</button>
-				<button type="default" form-type="reset">Reset</button>
+				<button v-if="type == 'add'" type="primary" size="default" class="primarybtn" form-type="submit">添加就诊人</button>
+				<view v-if="type == 'edit'" class="rowflex">
+					<view style="width: 50%;">
+						<button type="primary" size="default" class="regularbtn" style="width: 90%;">删除就诊人</button>
+					</view>
+					<view style="width: 50%;">
+						<button type="primary" size="default" class="primarybtn" style="width: 90%;" form-type="submit">保存</button>
+					</view>
+
+
+				</view>
 			</view>
 		</form>
 	</view>
 </template>
 
 <script>
+	var graceChecker = require("../../../common/graceChecker.js");
 	export default {
 		data() {
 			return {
-				type: '', // add 为新增 edit 为修改
+				type: 'add', // add 为新增 edit 为修改
 				id: '',
 				relation: ['本人', '父母', '配偶', '子女', '其他'],
-				array: ['中国', '美国', '巴西', '日本'],
+				array: ['就诊卡', '病历本'],
 				form: {
-					relation: '',
+					relation: 0,
 					name: '',
 					id: '',
-					cardType: '',
+					cardType: 0,
 					cardNo: '',
-					phone: ''
-				}
+					phone: '',
+					default: '',
+				},
 			}
 		},
 		methods: {
@@ -85,23 +102,70 @@
 
 			},
 			formSubmit: function(e) {
-				console.log('form发生了submit事件，携带数据为：' + JSON.stringify(e.detail.value))
+				// console.log('form发生了submit事件，携带数据为：' + JSON.stringify(e.detail.value))
+
 				var formdata = e.detail.value
-				uni.showModal({
-					content: '表单数据内容：' + JSON.stringify(formdata),
-					showCancel: false
-				});
+				// 姓名正则校验
+				let reg_name = /^([\u4e00-\u9fa5]{2,20}|[a-zA-Z\.\s]{1,20})$/
+				let sign_name = RegExp(reg_name).test(formdata.name);
+				// 身份证正则校验
+				let reg_idcard18 = /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/
+				let reg_idcard15 = /^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}[0-9Xx]$/
+				let sign_idcard18 = RegExp(reg_idcard18).test(formdata.idcard);
+				let sign_idcard15 = RegExp(reg_idcard15).test(formdata.idcard);
+				// 手机号正则校验
+				let reg_phone = /^((13[0-9])|(14[5|7|9])|(15([0-9])|(17[0-9])|(18[0-9])|(19[8|9]))\\d{8})$/
+				let sign_phone = RegExp(reg_phone).test(formdata.phone);
+				// if (!sign_name) {
+				// 	this.showToast('姓名应为2-20个字符');
+				// } 
+				// else
+				// if (!(sign_idcard18 || sign_idcard15)) {
+				// 	this.showToast('请检查证件号码是否正确');
+				// }
+				// else
+				// if((formdata.cardno).trim() == ''){
+				// 	this.showToast('请输入卡号码');
+				// }
+				// else
+				if((formdata.cardno).trim() == ''){
+					this.showToast('请输入手机号');
+				}
+				// else
+				if(!sign_phone){
+					this.showToast('请检查手机号是否正确');
+				}
+
+
+				// var formdata = e.detail.value
+				// uni.showModal({
+				// 	title:'提示',
+				// 	content: '表单数据内容：' + JSON.stringify(formdata),
+				// 	showCancel: false
+				// });
 			},
-			formReset: function(e) {
-				console.log('清空数据')
+			showToast(content) {
+				uni.showToast({
+					title: content,
+					icon: "none"
+					// content: content,
+				})
 			},
-			bindPickerChange: function(e) {
+			//选择关系
+			relationChange: function(e) {
 				console.log('picker发送选择改变，携带值为', e.target.value)
-				this.index = e.target.value
+				this.form.relation = e.target.value
+				// this.arelation = this.relation[e.target.value]
 			},
+			//选择卡类型
+			cardTypeChange: function(e) {
+				console.log('picker发送选择改变，携带值为', e.target.value)
+				this.form.cardType = e.target.value;
+			}
 		},
 		onLoad: function(params) {
-			this.type = params.params;
+			// this.type = params.params;
+			this.type = 'add';
 			this.id = params.id;
 			console.log(this.type);
 			console.log(this.id);
@@ -117,7 +181,7 @@
 	}
 
 	.uni-form-item {
-		background-color: #FFFFFF;
+		/* background-color: #FFFFFF; */
 		border-bottom: #cccccc 1px solid;
 		padding-bottom: 4px;
 		display: flex;
@@ -129,9 +193,14 @@
 	}
 
 	.uni-form-item .content {
-		width: calc(100% - 60px);
-		text-align: right;
-		font-size: 10px;
+		width: calc(100% - 80px);
+		position: relative;
+	}
+
+	.arrowdown {
+		position: absolute;
+		right: 0px;
+		top: 2px;
 	}
 
 	.uni-input {

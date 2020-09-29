@@ -8173,7 +8173,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-var components
+var components = {
+  uniIcons: __webpack_require__(/*! @/components/uni-icons/uni-icons.vue */ 8).default
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -8182,27 +8184,274 @@ var render = function() {
     "v-uni-view",
     { attrs: { _i: 0 } },
     [
-      _c("v-uni-input", {
-        attrs: { _i: 1 },
-        model: {
-          value: _vm._$g(1, "v-model"),
-          callback: function($$v) {
-            _vm.$handleVModelEvent(1, $$v)
-          },
-          expression: "form.phone"
-        }
-      }),
       _c(
-        "v-uni-button",
+        "v-uni-form",
         {
-          attrs: { _i: 2 },
+          attrs: { _i: 1 },
           on: {
-            click: function($event) {
+            submit: function($event) {
+              return _vm.$handleViewEvent($event)
+            },
+            reset: function($event) {
               return _vm.$handleViewEvent($event)
             }
           }
         },
-        [_vm._v("test")]
+        [
+          _c(
+            "v-uni-view",
+            {
+              staticStyle: {
+                padding: "0 10px 40px 10px",
+                "background-color": "#FFFFFF"
+              },
+              attrs: { _i: 2 }
+            },
+            [
+              _c(
+                "v-uni-view",
+                { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } },
+                [
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
+                    [_vm._v("关系")]
+                  ),
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
+                    [
+                      _c(
+                        "v-uni-picker",
+                        {
+                          attrs: {
+                            value: _vm._$g(6, "a-value"),
+                            name: "relation",
+                            range: _vm._$g(6, "a-range"),
+                            _i: 6
+                          },
+                          on: {
+                            change: function($event) {
+                              return _vm.$handleViewEvent($event)
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "v-uni-view",
+                            { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
+                            [_vm._v(_vm._$g(7, "t0-0"))]
+                          )
+                        ],
+                        1
+                      ),
+                      _c("uni-icons", {
+                        staticClass: _vm._$g(8, "sc"),
+                        attrs: { _i: 8 }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _c(
+                "v-uni-view",
+                { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
+                [
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(10, "sc"), attrs: { _i: 10 } },
+                    [_vm._v("姓名")]
+                  ),
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(11, "sc"), attrs: { _i: 11 } },
+                    [
+                      _c("v-uni-input", {
+                        staticClass: _vm._$g(12, "sc"),
+                        attrs: { name: "name", placeholder: "必填", _i: 12 }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _c(
+                "v-uni-view",
+                { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
+                [
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
+                    [_vm._v("身份证号")]
+                  ),
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
+                    [
+                      _c("v-uni-input", {
+                        staticClass: _vm._$g(16, "sc"),
+                        attrs: { name: "idcard", placeholder: "必填", _i: 16 }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _c(
+                "v-uni-view",
+                { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
+                [
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
+                    [_vm._v("卡类型")]
+                  ),
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
+                    [
+                      _c(
+                        "v-uni-picker",
+                        {
+                          attrs: {
+                            value: _vm._$g(20, "a-value"),
+                            name: "cardType",
+                            range: _vm._$g(20, "a-range"),
+                            _i: 20
+                          },
+                          on: {
+                            change: function($event) {
+                              return _vm.$handleViewEvent($event)
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "v-uni-view",
+                            {
+                              staticClass: _vm._$g(21, "sc"),
+                              attrs: { _i: 21 }
+                            },
+                            [_vm._v(_vm._$g(21, "t0-0"))]
+                          )
+                        ],
+                        1
+                      ),
+                      _c("uni-icons", {
+                        staticClass: _vm._$g(22, "sc"),
+                        attrs: { _i: 22 }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _c(
+                "v-uni-view",
+                { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
+                [
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
+                    [_vm._v("卡号码")]
+                  ),
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
+                    [
+                      _c("v-uni-input", {
+                        staticClass: _vm._$g(26, "sc"),
+                        attrs: { name: "cardno", placeholder: "必填", _i: 26 }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _c(
+                "v-uni-view",
+                { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
+                [
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(28, "sc"), attrs: { _i: 28 } },
+                    [_vm._v("手机号")]
+                  ),
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
+                    [
+                      _c("v-uni-input", {
+                        staticClass: _vm._$g(30, "sc"),
+                        attrs: { name: "phone", placeholder: "必填", _i: 30 }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _c(
+            "v-uni-view",
+            {
+              staticClass: _vm._$g(31, "sc"),
+              staticStyle: { "padding-top": "20px" },
+              attrs: { _i: 31 }
+            },
+            [
+              _c(
+                "v-uni-view",
+                {
+                  staticClass: _vm._$g(32, "sc"),
+                  staticStyle: { width: "120px" },
+                  attrs: { _i: 32 }
+                },
+                [_vm._v("设为默认就诊人")]
+              ),
+              _c(
+                "v-uni-view",
+                {
+                  staticClass: _vm._$g(33, "sc"),
+                  staticStyle: { "text-align": "right" },
+                  attrs: { _i: 33 }
+                },
+                [
+                  _c("v-uni-switch", {
+                    staticStyle: { transform: "scale(0.7,0.7)" },
+                    attrs: { name: "switch", _i: 34 }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _c(
+            "v-uni-view",
+            { staticClass: _vm._$g(35, "sc"), attrs: { _i: 35 } },
+            [
+              _c("v-uni-button", { attrs: { "form-type": "submit", _i: 36 } }, [
+                _vm._v("Submit")
+              ]),
+              _c(
+                "v-uni-button",
+                { attrs: { type: "default", "form-type": "reset", _i: 37 } },
+                [_vm._v("Reset")]
+              )
+            ],
+            1
+          )
+        ],
+        1
       )
     ],
     1
@@ -8296,7 +8545,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../soft/HBuilderX/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 16);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.uni-form-item[data-v-1d104917]{\r\n\tbackground-color: #FFFFFF;\r\n\tborder-bottom: #000000 1px solid;\r\n\tpadding-bottom: 4px;\n}\r\n", ""]);
+exports.push([module.i, "\n.uni-form-item .title[data-v-1d104917] {\n\t/* padding: 10px 0; */\n\twidth: 80px;\n\tfont-size: 14px;\n}\n.uni-form-item[data-v-1d104917] {\n\t/* background-color: #FFFFFF; */\n\tborder-bottom: #cccccc 1px solid;\n\tpadding-bottom: 4px;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-flex-wrap: nowrap;\n\t        flex-wrap: nowrap;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: row;\n\t        flex-direction: row;\n\t/* justify-content: center; */\n\t-webkit-box-align: center;\n\t-webkit-align-items: center;\n\t        align-items: center;\n\tpadding: 10px;\n}\n.uni-form-item .content[data-v-1d104917] {\n\twidth: calc(100% - 80px);\n\tposition: relative;\n}\n.arrowdown[data-v-1d104917]{\n\tposition: absolute;\n\tright: 0px;\n\ttop: 2px;\n}\n.uni-input[data-v-1d104917] {\n\tfont-size: 14px;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
