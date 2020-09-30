@@ -50,8 +50,8 @@
 				</view>
 				<view class="content2">
 					<view class="content3" v-show="!showUser">
-						<text class="iconfont icontianjia block orsp11"></text>
-						<text class="block orsp12">添加就诊人</text>
+						<text class="iconfont icontianjia block orsp11" @click="addUser"></text>
+						<text class="block orsp12" >添加就诊人</text>
 					</view>
 					<view class="content3" v-show="showUser">
 						<view class="orsp15">
@@ -93,6 +93,7 @@
 	export default {
 		data() {
 			return {
+				sh: '', //测试
 				toptitle: '', //头部标题
 				money: '15.0',
 				showUser: false, // false:当前就诊人列表为空或者无默认就诊人
@@ -135,11 +136,19 @@
 				});
 			},
 			changeUser() {
-				// 选择用户
+				// 选择就诊人
 				var v = this;
-				// v.showUser = !v.showUser;
+				uni.navigateTo({
+					url: './patient/selectPatient'
+				})
 				v.setlocal();
 				v.getlocal();
+			},
+			addUser() {
+				// 添加就诊人
+				uni.navigateTo({
+					url: '../views/patient/editPatient?params=add'
+				})
 			},
 			open(noon) {
 				// 打开弹出框 
@@ -229,15 +238,19 @@
 
 
 			// 有默认就诊人则去调取默认就诊人的信息
-			
+
 			//判断从哪个页面进入，如果从选择联系人中进入则需要给联系人重新赋值
-			var pages = getCurrentPages();
-			var beforepage = pages[pages.length - 2];
-			console.log(beforepage.route);
-			if (beforepage.route == 'pages/views/orderRegister2'){
-				console.log('success')
-			}
-		}
+			// var pages = getCurrentPages();
+			// var beforepage = pages[pages.length - 2];
+			// console.log(beforepage.route);
+			// if (beforepage.route == 'pages/views/orderRegister2') {
+			// 	console.log('success')
+			// }
+		},
+		//返回接收参数
+		onShow: function() {
+			console.log(this.sh)
+		},
 	};
 </script>
 

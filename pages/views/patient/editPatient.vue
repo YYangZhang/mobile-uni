@@ -24,7 +24,7 @@
 				<view class="uni-form-item uni-column">
 					<view class="title">身份证号</view>
 					<view class="content">
-						<input class="uni-input" name="idcard" placeholder="必填" :disabled="type == 'edit'" />
+						<input class="uni-input" name="idcard" placeholder="必填" :disabled="type == 'edit'" type="idcard" />
 					</view>
 
 				</view>
@@ -42,14 +42,14 @@
 				<view class="uni-form-item uni-column">
 					<view class="title">卡号码</view>
 					<view class="content">
-						<input class="uni-input" name="cardno" placeholder="必填" />
+						<input class="uni-input" name="cardno" placeholder="必填" type="number" />
 					</view>
 				</view>
 
 				<view class="uni-form-item uni-column">
 					<view class="title">手机号</view>
 					<view class="content">
-						<input class="uni-input" name="phone" placeholder="必填" />
+						<input class="uni-input" name="phone" placeholder="必填" type="number" />
 					</view>
 				</view>
 			</view>
@@ -61,13 +61,13 @@
 				</view>
 			</view>
 			<view class="uni-btn-v">
-				<button v-if="type == 'add'" type="primary" size="default" class="primarybtn" form-type="submit">添加就诊人</button>
+				<button v-if="type == 'add'" type="primary" size="default" class="primarybtn" form-type="submit" @click="gotolast">添加就诊人</button>
 				<view v-if="type == 'edit'" class="rowflex">
 					<view style="width: 50%;">
 						<button type="primary" size="default" class="regularbtn" style="width: 90%;">删除就诊人</button>
 					</view>
 					<view style="width: 50%;">
-						<button type="primary" size="default" class="primarybtn" style="width: 90%;" form-type="submit">保存</button>
+						<button type="primary" size="default" class="primarybtn" style="width: 90%;" form-type="submit" @click="gotolast">保存</button>
 					</view>
 
 
@@ -114,35 +114,32 @@
 				let sign_idcard18 = RegExp(reg_idcard18).test(formdata.idcard);
 				let sign_idcard15 = RegExp(reg_idcard15).test(formdata.idcard);
 				// 手机号正则校验
-				let reg_phone = /^((13[0-9])|(14[5|7|9])|(15([0-9])|(17[0-9])|(18[0-9])|(19[8|9]))\\d{8})$/
+				let reg_phone = /^[1][3,4,5,7,8][0-9]{9}$/
 				let sign_phone = RegExp(reg_phone).test(formdata.phone);
-				// if (!sign_name) {
-				// 	this.showToast('姓名应为2-20个字符');
-				// } 
-				// else
-				// if (!(sign_idcard18 || sign_idcard15)) {
-				// 	this.showToast('请检查证件号码是否正确');
-				// }
-				// else
-				// if((formdata.cardno).trim() == ''){
-				// 	this.showToast('请输入卡号码');
-				// }
-				// else
-				if((formdata.cardno).trim() == ''){
+				if ((formdata.name).trim() == '') {
+					this.showToast('请输入姓名');
+				} else
+				if (!sign_name) {
+					this.showToast('姓名至少为2个字');
+				} else
+				if (!(sign_idcard18 || sign_idcard15)) {
+					this.showToast('请检查证件号码是否正确');
+				} else
+				if ((formdata.cardno).trim() == '') {
+					this.showToast('请输入卡号码');
+				} else
+				if ((formdata.phone).trim() == '') {
 					this.showToast('请输入手机号');
-				}
-				// else
-				if(!sign_phone){
+				} else
+				if (!sign_phone) {
 					this.showToast('请检查手机号是否正确');
+				} else {
+					uni.showModal({
+						title: '提示',
+						content: '表单数据内容：' + JSON.stringify(formdata),
+						showCancel: false
+					});
 				}
-
-
-				// var formdata = e.detail.value
-				// uni.showModal({
-				// 	title:'提示',
-				// 	content: '表单数据内容：' + JSON.stringify(formdata),
-				// 	showCancel: false
-				// });
 			},
 			showToast(content) {
 				uni.showToast({
@@ -161,14 +158,22 @@
 			cardTypeChange: function(e) {
 				console.log('picker发送选择改变，携带值为', e.target.value)
 				this.form.cardType = e.target.value;
+			},
+			gotolast(){
+				//判断从哪个页面进入，点击后返回该页面
+				 var pages = getCurrentPages();
+				 var prevPage = pages[pages.length - 2]; //上一个页面
+				 // prevPage.$vm.sh = formdata.idcard,
+				 uni.navigateBack({//返回
+				 delta: 1
+				 })
 			}
 		},
 		onLoad: function(params) {
-			// this.type = params.params;
-			this.type = 'add';
+			this.type = params.params;
 			this.id = params.id;
 			console.log(this.type);
-			console.log(this.id);
+			// console.log(this.id);
 		}
 	}
 </script>

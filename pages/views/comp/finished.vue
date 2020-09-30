@@ -7,7 +7,7 @@
 				<text class="block finsp2">感谢您对我院的支持和信任</text>
 			</view>
 			<view class="content2 contentbottom">
-				<image src="../../static/img/txm.jpg" style="width: 100%;height: 100px;"></image>
+				<image src="../../../static/img/txm.jpg" style="width: 100%;height: 100px;"></image>
 			</view>
 			<view class="content3 contentbottom">
 				<view class="flex-row finpadbot">
