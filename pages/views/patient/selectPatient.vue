@@ -60,19 +60,19 @@
 					},
 					{
 						name: '小可爱',
-						idno: '320683********0311',
+						idno: '320683********0312',
 						checked: false,
 						default: '1'
 					},
 					{
 						name: '双枪老太婆',
-						idno: '320683********0311',
+						idno: '320683********0313',
 						checked: false,
 						default: '1'
 					},
 					{
 						name: '无敌胖胖',
-						idno: '320683********0311',
+						idno: '320683********0314',
 						checked: false,
 						default: '1'
 					},
@@ -108,7 +108,8 @@
 				 var pages = getCurrentPages();
 				 var prevPage = pages[pages.length - 2]; //上一个页面
 				 //uni或者vue用$vm
-				 prevPage.$vm.sh = this.userlist[index].idno,
+				 prevPage.$vm.idno = this.userlist[index].idno,
+				 prevPage.$vm.name = this.userlist[index].name,
 				 uni.navigateBack({//返回
 				 delta: 1
 				 })

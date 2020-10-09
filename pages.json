@@ -112,7 +112,15 @@
 		}
 	    ,{
             "path" : "pages/views/comp/registerFailed",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "挂号详情"
+			}
+        }
+        ,{
+            "path" : "pages/views/report/reportSearch",
+            "style" : {
+				"navigationBarTitleText": "报告查询"
+			}
         }
     ],
 

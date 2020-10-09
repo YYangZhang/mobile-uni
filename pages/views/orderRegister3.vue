@@ -60,10 +60,10 @@
 								<image src="../../static/img/1.jpg"></image>
 							</view>
 						</view>
-						<text class="block orsp16">孙漂亮</text>
+						<text class="block orsp16">{{name}}</text>
 						<view class="orsp17">
 							<text class="orsp18">身份证号</text>
-							<text class="orsp19">3206********0254</text>
+							<text class="orsp19">{{idno}}</text>
 						</view>
 					</view>
 				</view>
@@ -71,9 +71,9 @@
 		</view>
 		<view class="footer">
 			<view class="footer-left">
-				<text>您已选择：<text>2017-07-03 {{localObj.selectedTime}}</text></text>
+				<text>您已选择：<text>{{ localObj.year }}-{{ localObj.month }}-{{ localObj.date }} {{localObj.selectedTime}}</text></text>
 			</view>
-			<view class="footer-right">
+			<view class="footer-right" @click="orderConfirm">
 				确定预约
 			</view>
 		</view>
@@ -93,7 +93,8 @@
 	export default {
 		data() {
 			return {
-				sh: '', //测试
+				idno: '', //测试
+				name:'',
 				toptitle: '', //头部标题
 				money: '15.0',
 				showUser: false, // false:当前就诊人列表为空或者无默认就诊人
@@ -214,6 +215,23 @@
 				} catch (e) {
 					console.log('order缓存到本地错误');
 				};
+			},
+			orderConfirm(){
+				// 确定预约
+				uni.navigateTo({
+					url: '../views/comp/orderSuccess'
+				})
+			},
+			showUsers(){
+				// 判断是否选择用户 显示不同的界面
+				var v = this;
+				if(v.idno != '' && v.name != ''){
+					v.showUser = true
+					console.log('true')
+				}else{
+					v.showUser = false
+					console.log('false')
+				}
 			}
 		},
 		onLoad() {
@@ -236,7 +254,6 @@
 
 
 
-
 			// 有默认就诊人则去调取默认就诊人的信息
 
 			//判断从哪个页面进入，如果从选择联系人中进入则需要给联系人重新赋值
@@ -249,7 +266,7 @@
 		},
 		//返回接收参数
 		onShow: function() {
-			console.log(this.sh)
+			this.showUsers();
 		},
 	};
 </script>

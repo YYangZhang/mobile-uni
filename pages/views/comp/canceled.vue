@@ -23,7 +23,7 @@
 			</view>
 		</view>
 		<view class="content6">
-			<button type="primary" class="primarybtn">重新预约</button>
+			<button type="primary" class="primarybtn" @tap="orderAgain">重新预约</button>
 		</view>
 	</view>
 </template>
@@ -44,7 +44,13 @@
 			}
 		},
 		methods: {
-
+			orderAgain(){
+				// 重新预约
+				console.log('success')
+				uni.navigateTo({
+					url: '../orderRegister2'
+				})
+			}
 		},
 		// onLoad: function(params) {
 		// 	if (params == 'order') {

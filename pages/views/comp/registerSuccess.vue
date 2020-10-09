@@ -91,7 +91,7 @@
 			</view>
 		</view>
 		<view class="content5">
-			<button type="primary" class="primarybtn">返回首页</button>
+			<button type="primary" class="primarybtn" @tap="gotoMenu">返回首页</button>
 		</view>
 	</view>
 </template>
@@ -112,7 +112,11 @@
 			}
 		},
 		methods: {
-
+			gotoMenu(){
+				uni.switchTab({
+					url:'/pages/service/service'
+				})
+			}
 		}
 	}
 </script>

@@ -100,14 +100,21 @@
 				立即支付￥{{jzpay}}
 			</view>
 		</view>
-		<!-- <uni-popup ref="popup" type="dialog">
-		    <uni-popup-dialog type="dialog" message="成功消息" :duration="2000" :before-close="true" @close="close" @confirm="gotocancel"></uni-popup-dialog>
-		</uni-popup> -->
+		<uni-popup ref="popup" type="dialog">
+			<uni-popup-dialog type="warn" title="确定要取消预约吗?" mode="base" :duration="1000" :before-close="true" @close="close"
+			 @confirm="confirm"></uni-popup-dialog>
+		</uni-popup>
 	</view>
 </template>
 
 <script>
+	import uniPopup from '@/components/uni-popup/uni-popup.vue'
+	import uniPopupDialog from '@/components/uni-popup/uni-popup-dialog.vue'
 	export default {
+		components: {
+			uniPopup,
+			uniPopupDialog
+		},
 		data() {
 			return {
 				jzidx: "15",
@@ -122,21 +129,33 @@
 			}
 		},
 		methods: {
-			cancel(){
+			cancel() {
 				// 取消预约
 				this.$refs.popup.open()
 			},
-			gotocancel(){
+			gotocancel() {
 				// 跳转到取消成功页面
 				uni.navigateTo({
-					url:'pages/views/comp/canceled'
+					url: '/pages/views/comp/canceled'
 				})
 			},
-			gotopay(){
+			gotopay() {
 				// 去支付页面，跳转到挂号成功
 				uni.navigateTo({
-					url:'/pages/views/comp/registerSuccess'
+					url: '/pages/views/comp/registerSuccess'
 				})
+			},
+			close(done) {
+				// TODO 做一些其他的事情，before-close 为true的情况下，手动执行 done 才会关闭对话框
+				// ...
+				done()
+			},
+			confirm(done) {
+				// TODO 做一些其他的事情，手动执行 done 才会关闭对话框
+				// ...
+				this.gotocancel();
+				done()
+				
 			}
 		}
 	}
@@ -263,11 +282,12 @@
 		background-color: #268efd;
 		line-height: 50px;
 	}
-	.finsp5{
+
+	.finsp5 {
 		font-family: "Arial Negreta", Arial, sans-serif;
-		    font-weight: 700;
-		    font-style: normal;
-		    font-size: 20px;
-			color: #cc3300;
+		font-weight: 700;
+		font-style: normal;
+		font-size: 20px;
+		color: #cc3300;
 	}
 </style>
