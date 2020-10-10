@@ -122,6 +122,18 @@
 				"navigationBarTitleText": "报告查询"
 			}
         }
+        ,{
+            "path" : "pages/views/report/reportList",
+            "style" : {
+				"navigationBarTitleText": "查看报告"
+			}
+        }
+        ,{
+            "path" : "pages/views/report/reportDetail",
+            "style" : {
+				"navigationBarTitleText": "报告详情"
+			}
+        }
     ],
 
 

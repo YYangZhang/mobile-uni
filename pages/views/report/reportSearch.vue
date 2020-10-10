@@ -17,8 +17,16 @@
 			<view class="contentBody">
 				<view class="choosePatient flex">
 					<view class="rptsp3">当前就诊人</view>
-					<view class="rptsp4">切换就诊人<uni-icons type="arrowright" size="14" style="color: #828282;"></uni-icons>
+					<view class="rptsp4" @click="changeUser()">切换就诊人<uni-icons type="arrowright" size="14" style="color: #828282;"></uni-icons>
 					</view>
+				</view>
+				<view class="patientInfo flex" style="color: #666666;">
+					<view class="rptsp5">姓名</view>
+					<view class="rptsp6">{{name}}</view>
+				</view>
+				<view class="patientInfo flex">
+					<view class="rptsp5">就诊卡号</view>
+					<view class="rptsp6">{{idno}}</view>
 				</view>
 			</view>
 		</view>
@@ -32,12 +40,21 @@
 	export default {
 		data() {
 			return {
-
+				idno:'',
+				name:'',
 			}
 		},
 		methods: {
-
-		}
+			changeUser() {
+				// 选择就诊人
+				uni.navigateTo({
+					url: '../patient/selectPatient'
+				})
+			},
+		},
+		onShow: function() {
+			console.log(this.idno,this.name);
+		},
 	}
 </script>
 
@@ -135,5 +152,26 @@
 		font-style: normal;
 		font-size: 14px;
 		color: #333333;
+	}
+
+	.patientInfo {
+		flex-direction: row;
+		flex-wrap: nowrap;
+		font-family: 'Arial Normal', 'Arial', sans-serif;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 15px;
+		padding-top: 10px;
+		padding-left: 4px;
+		color: #000000;
+		align-items: center;
+	}
+
+	.rptsp5 {
+		width: 80px;
+	}
+
+	.rptsp6 {
+		width: calc(100% - 80px);
 	}
 </style>
