@@ -18,7 +18,7 @@
 					</view>
 				</view>
 			</view>
-			<view style="margin-top: 30px;text-align: center;">只有这么多了</view>
+			<view style="margin-top: 30px;text-align: center;font-size: 30rpx;">只有这么多了</view>
 		</view>
 		<view class="noreport" v-if="!showreport">
 			<view class="iconfont iconkong"></view>
