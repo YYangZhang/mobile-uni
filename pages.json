@@ -134,6 +134,12 @@
 				"navigationBarTitleText": "报告详情"
 			}
         }
+        ,{
+            "path" : "pages/views/mypages/myOrders",
+            "style" : {
+				"navigationBarTitleText": "我的预约挂号"
+			}
+        }
     ],
 
 

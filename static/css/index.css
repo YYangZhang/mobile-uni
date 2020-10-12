@@ -1,5 +1,6 @@
-.flex{
-	display: -webkit-flex;/* Safari */
+.flex {
+	display: -webkit-flex;
+	/* Safari */
 	display: flex;
 }
 
@@ -13,9 +14,10 @@
 	box-sizing: border-box;
 }
 
-.fullscreen{
+.fullscreen {
 	height: 100%;
 }
+
 /* swipper中img的样式 */
 .swiperimg {
 	width: 100%;
@@ -40,11 +42,12 @@
 	font-style: normal;
 	font-size: 16px;
 }
-.regularbtn{
+
+.regularbtn {
 	width: 80%;
 	border-radius: 25px;
 	background-color: #FFFFFF !important;
-	color: #268efd!important;
+	color: #268efd !important;
 	line-height: 36px;
 	font-family: "Arial Negreta", Arial, sans-serif;
 	font-weight: 400;
@@ -53,8 +56,44 @@
 	border: #268efd 1px solid;
 }
 
-.rowflex{
+.rowflex {
 	display: flex;
 	flex-wrap: nowrap;
 	flex-direction: row;
+}
+
+.blue {
+	color: #258EFC;
+}
+
+.orange {
+	color: #F4831B;
+}
+
+.warnred {
+	color: #CC3300;
+}
+
+.txtcenter {
+	text-align: center;
+}
+
+.txtleft {
+	text-align: left;
+}
+
+.txtright {
+	text-align: right;
+}
+
+.color333 {
+	color: #333333;
+}
+
+.color666 {
+	color: #666666;
+}
+
+.color999 {
+	color: #999999;
 }
