@@ -168,6 +168,10 @@
             "path" : "pages/views/pay/menzhenPayDetail",
             "style" : {}
         }
+        ,{
+            "path" : "pages/views/pay/zhuyuanOrderInfo",
+            "style" : {}
+        }
     ],
 
 

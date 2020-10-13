@@ -3,7 +3,7 @@
 		<view class="content">
 			<view class="contentHeader">
 				<view class="left">
-					<text class="iconfont iconkabao"></text>
+					<text class="iconfont iconbingchuang1"></text>
 				</view>
 				<view class="right">
 					<view style="padding-top: 6px;">
