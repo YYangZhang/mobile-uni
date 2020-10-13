@@ -26,12 +26,12 @@ export default {
 				{
 					title:'我的就诊人',
 					img:'/static/img/jiuzhen.png',
-					url:'../info/test'
+					url:'../views/patient/defaultPatient'
 				},
 				{
 					title:'我的预约挂号',
 					img:'/static/img/yuyue.png',
-					url:'../info/test'
+					url:'../views/mypages/myOrders'
 				},
 				{
 					title:'门诊缴费记录',

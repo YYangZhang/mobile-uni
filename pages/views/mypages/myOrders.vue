@@ -2,7 +2,7 @@
 	<view class="fullscreen">
 		<view class="selectPatient flex">
 			<view class="myOrdersdiv1 color666">当前就诊人</view>
-			<view class="myOrdersdiv1 color666">
+			<view class="myOrdersdiv1 color666" @click="changeUser">
 				{{ name }}
 				<uni-icons type="arrowright" size="14" style="margin-left: 6px;" color="#cccccc"></uni-icons>
 			</view>
@@ -15,7 +15,7 @@
 					<!-- // 1为待支付 2为已取消 3为待就诊 4为已就诊 -->
 					<view class="myordersp2">快捷挂号</view>
 				</view>
-				<view class="cardbot">
+				<view class="cardbot" @click="gotopages(order.status)">
 					<uni-icons type="arrowright" size="20" class="myordersp5" color="#cccccc"></uni-icons>
 					<view class="myordersp3 flex">
 						<view>预约科室</view>
@@ -112,7 +112,39 @@ export default {
 			]
 		};
 	},
-	methods: {},
+	methods: {
+		gotopages(status){
+			if(status == '1'){
+				// 待支付
+				uni.navigateTo({
+					url: "../comp/orderSuccess"
+				})
+			}else if(status == '2'){
+				// 已取消
+				uni.navigateTo({
+					url: "../comp/canceled"
+				})
+			}else if(status == '3'){
+				// 待就诊
+				uni.navigateTo({
+					url: "../comp/registerSuccess"
+				})
+			}else if(status == '4'){
+				// 已就诊
+				uni.navigateTo({
+					url: "../comp/finished"
+				})
+			}else{
+				// 其他
+				console.log('error');
+			}
+		},
+		changeUser(){
+			uni.navigateTo({
+				url: '../patient/selectPatient'
+			})
+		}
+	},
 	computed: {
 		diffstatus(num) {
 			return function(num) {

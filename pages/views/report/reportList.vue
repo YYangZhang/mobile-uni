@@ -6,7 +6,7 @@
 					<view class="rptlsp1">检查报告{{index + 1}}</view>
 					<view class="rptlsp2">已出报告</view>
 				</view>
-				<view class="itembot" @click="gotoDetail(report.id)">
+				<view class="itembot" @click="gotoDetail(report.type)">
 					<uni-icons type="arrowright" class="arrowright" size="18" color="#268efd"></uni-icons>
 					<view class="botinfo flex">
 						<view class="rptlsp3">名称</view>
@@ -33,74 +33,86 @@
 	export default {
 		data() {
 			return {
-				showreport:true,
+				showreport: true,
 				reports: [{
 						name: '抗体测试',
 						id: '1',
-						date: '2020-09-20'
+						date: '2020-09-20',
+						type: '1'
 					},
 					{
 						name: '抗凝血',
 						id: '2',
-						date: '2020-09-20'
+						date: '2020-09-20',
+						type: '2'
 					},
 					{
 						name: '药检',
 						id: '3',
-						date: '2020-09-20'
+						date: '2020-09-20',
+						type: '3'
 					},
 					{
 						name: '尿检',
 						id: '4',
-						date: '2020-09-20'
+						date: '2020-09-20',
+						type: '4'
 					},
 					{
 						name: '心律检查',
 						id: '5',
-						date: '2020-09-20'
+						date: '2020-09-20',
+						type: '1'
 					},
 					{
 						name: '抗体测试',
 						id: '6',
-						date: '2020-09-20'
+						date: '2020-09-20',
+						type: '1'
 					},
 					{
 						name: '抗体测试',
 						id: '7',
-						date: '2020-09-20'
+						date: '2020-09-20',
+						type: '1'
 					},
 					{
 						name: '抗体测试',
 						id: '8',
-						date: '2020-09-20'
+						date: '2020-09-20',
+						type: '1'
 					},
 					{
 						name: '抗体测试',
 						id: '9',
-						date: '2020-09-20'
+						date: '2020-09-20',
+						type: '1'
 					},
 					{
 						name: '抗体测试',
 						id: '10',
-						date: '2020-09-20'
+						date: '2020-09-20',
+						type: '1'
 					},
 					{
 						name: '抗体测试',
 						id: '11',
-						date: '2020-09-20'
+						date: '2020-09-20',
+						type: '1'
 					},
 					{
 						name: '抗体测试',
 						id: '12',
-						date: '2020-09-20'
+						date: '2020-09-20',
+						type: '1'
 					}
 				]
 			}
 		},
 		methods: {
-			gotoDetail(msg) {
+			gotoDetail(type) {
 				uni.navigateTo({
-					url: "../report/reportDetail"
+					url: "../report/reportDetail?params=" + type
 				})
 			}
 		}
@@ -182,17 +194,18 @@
 
 	.noreport {
 		width: 100%;
-		margin: 0 auto; 
+		margin: 0 auto;
 		text-align: center;
 		position: absolute;
 		top: 30%;
 		transform: translateY(-50%);
 	}
-	
-	.iconkong{
+
+	.iconkong {
 		font-size: 100px;
 		color: #999999;
 	}
+
 	.noreport-text {
 		font-family: '微软雅黑', sans-serif;
 		font-weight: 400;

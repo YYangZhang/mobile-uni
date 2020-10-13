@@ -7,10 +7,7 @@
 				</view>
 				<view class="right">
 					<view style="padding-top: 6px;">
-						<text class="rptsp1">报告查询</text>
-					</view>
-					<view style="padding-top: 10px;">
-						<text class="rptsp2">支持检查、检验报告、体检报告查询。</text>
+						<text class="rptsp1">住院费用清单</text>
 					</view>
 				</view>
 			</view>
@@ -28,10 +25,10 @@
 					</view>
 				</view>
 				<view class="patientInfo flex">
-					<view class="rptsp5">就诊卡号</view>
+					<view class="rptsp5">住院号</view>
 					<!-- <view class="rptsp6">{{idno}}</view> -->
 					<view class="rptsp6">
-						<input v-model="idno" class="rptsp7 rptsp8"/>
+						<input v-model="idno" placeholder="请输入住院号" class="rptsp7"/>
 					</view>
 				</view>
 			</view>
@@ -119,7 +116,6 @@
 
 	.right {
 		width: calc(100% - 60px);
-		height: 100%;
 		padding-left: 16px;
 		color: #FFFFFF;
 	}
@@ -131,12 +127,6 @@
 		font-size: 16px;
 	}
 
-	.rptsp2 {
-		font-family: 'Arial Normal', 'Arial', sans-serif;
-		font-weight: 400;
-		font-style: normal;
-		font-size: 13px;
-	}
 
 	.contentBody {
 		padding: 14px 10px 20px;
@@ -187,9 +177,5 @@
 	}
 	.rptsp7{
 		font-size: 15px;
-	}
-	.rptsp8{
-		position: relative;
-		top: 1px;
 	}
 </style>

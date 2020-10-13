@@ -7,10 +7,10 @@
 				</view>
 				<view class="right">
 					<view style="padding-top: 6px;">
-						<text class="rptsp1">报告查询</text>
+						<text class="rptsp1">门诊缴费</text>
 					</view>
 					<view style="padding-top: 10px;">
-						<text class="rptsp2">支持检查、检验报告、体检报告查询。</text>
+						<text class="rptsp2">在“我的缴费纪录”查询缴费记录信息</text>
 					</view>
 				</view>
 			</view>
@@ -59,7 +59,7 @@
 			},
 			searchReport(){
 				uni.navigateTo({
-					url: '../report/reportList'
+					url: '../pay/menzhenPayInfo'
 				})
 			}
 		},

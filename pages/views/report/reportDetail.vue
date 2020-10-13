@@ -131,6 +131,9 @@
 				reportType: 4, //报告种类
 			};
 		},
+		onLoad:function(params){
+			this.reportType = params.params;
+		},
 		methods: {
 			TanPreviewImage(imageUrl) {
 				// 点击查看图片详情

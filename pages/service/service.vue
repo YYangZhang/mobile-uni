@@ -78,7 +78,7 @@
 						list: [{
 								icon: 'iconbiaoqian',
 								text: '添加就诊人',
-								url:'../info/test'
+								url:'../views/patient/editPatient'
 							}, {
 								icon: 'iconorder',
 								text: '预约挂号',
@@ -87,12 +87,12 @@
 							{
 								icon: 'iconfuwutai',
 								text: '门诊缴费',
-								url:'../info/test'
+								url:'../views/pay/menzhenPay'
 							},
 							{
 								icon: 'iconrenwuqingdan',
 								text: '报告查询',
-								url:'../info/test'
+								url:'../views/report/reportSearch'
 							},
 							{
 								icon: 'icon1',
@@ -147,10 +147,18 @@
 			// 	})
 			// }
 			gotoMore(url,msg) {
-				uni.navigateTo({
-					// url: "../info/test?params=" + msg,
-					url:url + '?params=' + msg
-				})
+				if(url == '../views/patient/editPatient'){
+					console.log(url)
+					uni.navigateTo({
+						url:url + '?params=' + 'add'
+					})
+				}else{
+					uni.navigateTo({
+						// url: "../info/test?params=" + msg,
+						url:url + '?params=' + msg
+					})
+				}
+				
 			}
 
 		},

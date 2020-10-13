@@ -140,6 +140,34 @@
 				"navigationBarTitleText": "我的预约挂号"
 			}
         }
+        ,{
+            "path" : "pages/views/pay/menzhenPay",
+            "style" : {
+				"navigationBarTitleText": "门诊缴费"
+			}
+        }
+        ,{
+            "path" : "pages/views/pay/zhuyuanOrder",
+            "style" : {
+				"navigationBarTitleText": "住院预缴金"
+			}
+        }
+        ,{
+            "path" : "pages/views/pay/zhuyuanPayList",
+            "style" : {
+				"navigationBarTitleText": "住院费用"
+			}
+        }
+        ,{
+            "path" : "pages/views/pay/menzhenPayInfo",
+            "style" : {
+				"navigationBarTitleText": "门诊缴费"
+			}
+        }
+        ,{
+            "path" : "pages/views/pay/menzhenPayDetail",
+            "style" : {}
+        }
     ],
 
 
