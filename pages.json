@@ -109,98 +109,88 @@
 			"style": {
 				"navigationBarTitleText": "详情"
 			}
-		}
-	    ,{
-            "path" : "pages/views/comp/registerFailed",
-            "style" : {
+		}, {
+			"path": "pages/views/comp/registerFailed",
+			"style": {
 				"navigationBarTitleText": "挂号详情"
 			}
-        }
-        ,{
-            "path" : "pages/views/report/reportSearch",
-            "style" : {
+		}, {
+			"path": "pages/views/report/reportSearch",
+			"style": {
 				"navigationBarTitleText": "报告查询"
 			}
-        }
-        ,{
-            "path" : "pages/views/report/reportList",
-            "style" : {
+		}, {
+			"path": "pages/views/report/reportList",
+			"style": {
 				"navigationBarTitleText": "查看报告"
 			}
-        }
-        ,{
-            "path" : "pages/views/report/reportDetail",
-            "style" : {
+		}, {
+			"path": "pages/views/report/reportDetail",
+			"style": {
 				"navigationBarTitleText": "报告详情"
 			}
-        }
-        ,{
-            "path" : "pages/views/mypages/myOrders",
-            "style" : {
+		}, {
+			"path": "pages/views/mypages/myOrders",
+			"style": {
 				"navigationBarTitleText": "我的预约挂号"
 			}
-        }
-        ,{
-            "path" : "pages/views/pay/menzhenPay",
-            "style" : {
+		}, {
+			"path": "pages/views/pay/menzhenPay",
+			"style": {
 				"navigationBarTitleText": "门诊缴费"
 			}
-        }
-        ,{
-            "path" : "pages/views/pay/zhuyuanOrder",
-            "style" : {
+		}, {
+			"path": "pages/views/pay/zhuyuanOrder",
+			"style": {
 				"navigationBarTitleText": "住院预缴金"
 			}
-        }
-        ,{
-            "path" : "pages/views/pay/zhuyuanPayList",
-            "style" : {
+		}, {
+			"path": "pages/views/pay/zhuyuanPayList",
+			"style": {
 				"navigationBarTitleText": "住院费用"
 			}
-        }
-        ,{
-            "path" : "pages/views/pay/menzhenPayInfo",
-            "style" : {
+		}, {
+			"path": "pages/views/pay/menzhenPayInfo",
+			"style": {
 				"navigationBarTitleText": "门诊缴费"
 			}
-        }
-        ,{
-            "path" : "pages/views/pay/menzhenPayDetail",
-            "style" : {
+		}, {
+			"path": "pages/views/pay/menzhenPayDetail",
+			"style": {
 				"navigationBarTitleText": "门诊缴费"
 			}
-        }
-        ,{
-            "path" : "pages/views/pay/zhuyuanOrderInfo",
-            "style" : {
+		}, {
+			"path": "pages/views/pay/zhuyuanOrderInfo",
+			"style": {
 				"navigationBarTitleText": "住院预缴金"
 			}
-        }
-        ,{
-            "path" : "pages/views/pay/zhuyuanOrderDetail",
-            "style" : {
+		}, {
+			"path": "pages/views/pay/zhuyuanOrderDetail",
+			"style": {
 				"navigationBarTitleText": "住院预缴金"
 			}
-        }
-        ,{
-            "path" : "pages/views/pay/zhuyuanOrderFailed",
-            "style" : {
+		}, {
+			"path": "pages/views/pay/zhuyuanOrderFailed",
+			"style": {
 				"navigationBarTitleText": "住院预缴金"
 			}
-        }
-        ,{
-            "path" : "pages/views/pay/zhuyuanPayListDetail",
-            "style" : {
+		}, {
+			"path": "pages/views/pay/zhuyuanPayListDetail",
+			"style": {
 				"navigationBarTitleText": "住院预缴金"
 			}
-        }
-        ,{
-            "path" : "pages/views/mypages/myMenzhenList",
-            "style" : {
+		}, {
+			"path": "pages/views/mypages/myMenzhenList",
+			"style": {
 				"navigationBarTitleText": "门诊缴费记录"
 			}
-        }
-    ],
+		}, {
+			"path": "pages/views/mypages/myMenzhenDetail1",
+			"style": {
+				"navigationBarTitleText": "门诊缴费记录"
+			}
+		}
+	],
 
 
 	// tarbar设置

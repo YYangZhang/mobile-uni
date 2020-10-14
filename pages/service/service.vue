@@ -97,7 +97,7 @@
 							{
 								icon: 'icon1',
 								text: '门诊缴费记录',
-								url:'../info/test'
+								url:'../views/mypages/myMenzhenList'
 							}
 						],
 
@@ -107,7 +107,7 @@
 						list: [{
 								icon: 'iconzhuyuanqingdan',
 								text: '住院清单查询',
-								url:'../info/test'
+								url:'../views/pay/zhuyuanPayList'
 							},
 							{
 								icon: 'iconbingchuang',

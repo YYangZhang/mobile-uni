@@ -36,7 +36,7 @@ export default {
 				{
 					title:'门诊缴费记录',
 					img:'/static/img/menzhen.png',
-					url:'../info/test'
+					url:'../views/mypages/myMenzhenList'
 				},
 				{
 					title:'住院缴费记录',

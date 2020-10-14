@@ -24,7 +24,7 @@
 									订单号：{{order.orderNo}}
 								</view>
 								<view class="div7">
-									{{order.ordertype}}
+									{{order.status}}
 								</view>
 							</view>
 							<view class="div8">
@@ -35,7 +35,7 @@
 							<uni-collapse style="position: relative;">
 								<text class="sp2">￥{{order.total}}</text>
 								<uni-collapse-item title="合计" :showAnimation="true">
-									<view class="div11 flex" v-for="(detail,j) in order.details" :key="j">
+									<view class="div11 flex" v-for="(detail,j) in order.details" :key="j" @click="gotoDetail1">
 										<uni-icons type="arrowright" size="18" color="#cccccc" class="arrowright1"></uni-icons>
 										<view class="div12">
 											{{detail.name}}
@@ -139,6 +139,11 @@
 					url: '../patient/selectPatient'
 				})
 			},
+			gotoDetail1(){
+				uni.navigateTo({
+					url:'../mypages/myMenzhenDetail1'
+				})
+			}
 		}
 	}
 </script>
