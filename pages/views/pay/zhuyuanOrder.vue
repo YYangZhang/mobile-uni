@@ -34,7 +34,7 @@
 			</view>
 		</view>
 		<view class="footer">
-			<button type="primary" class="primarybtn" @click="searchReport">查询</button>
+			<button type="primary" class="primarybtn" @click="search">查询</button>
 		</view>
 	</view>
 </template>
@@ -54,9 +54,9 @@
 					url: '../patient/selectPatient'
 				})
 			},
-			searchReport(){
+			search(){
 				uni.navigateTo({
-					url: '../report/reportList'
+					url: '../pay/zhuyuanOrderInfo'
 				})
 			}
 		},
@@ -72,12 +72,13 @@
 	}
 
 	.content {
-		height: calc(100% - 100px);
+		height: calc(100% - 60px);
 		overflow: auto;
 	}
-
+	
 	.footer {
-		height: 100px;
+		height: 60px;
+		padding-top: 10px;
 	}
 
 	.contentHeader {

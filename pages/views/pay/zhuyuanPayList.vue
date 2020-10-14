@@ -56,7 +56,7 @@
 			},
 			searchReport(){
 				uni.navigateTo({
-					url: '../report/reportList'
+					url: '../pay/zhuyuanPayListDetail'
 				})
 			}
 		},
@@ -72,12 +72,13 @@
 	}
 
 	.content {
-		height: calc(100% - 100px);
+		height: calc(100% - 60px);
 		overflow: auto;
 	}
-
+	
 	.footer {
-		height: 100px;
+		height: 60px;
+		padding-top: 10px;
 	}
 
 	.contentHeader {

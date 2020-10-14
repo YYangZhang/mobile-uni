@@ -166,11 +166,39 @@
         }
         ,{
             "path" : "pages/views/pay/menzhenPayDetail",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "门诊缴费"
+			}
         }
         ,{
             "path" : "pages/views/pay/zhuyuanOrderInfo",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "住院预缴金"
+			}
+        }
+        ,{
+            "path" : "pages/views/pay/zhuyuanOrderDetail",
+            "style" : {
+				"navigationBarTitleText": "住院预缴金"
+			}
+        }
+        ,{
+            "path" : "pages/views/pay/zhuyuanOrderFailed",
+            "style" : {
+				"navigationBarTitleText": "住院预缴金"
+			}
+        }
+        ,{
+            "path" : "pages/views/pay/zhuyuanPayListDetail",
+            "style" : {
+				"navigationBarTitleText": "住院预缴金"
+			}
+        }
+        ,{
+            "path" : "pages/views/mypages/myMenzhenList",
+            "style" : {
+				"navigationBarTitleText": "门诊缴费记录"
+			}
         }
     ],
 

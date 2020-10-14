@@ -112,7 +112,7 @@
 							{
 								icon: 'iconbingchuang',
 								text: '住院缴费',
-								url:'../info/test'
+								url:'../views/pay/zhuyuanOrder'
 							},
 
 							{

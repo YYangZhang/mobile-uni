@@ -45,6 +45,9 @@ export default {
 	methods: {
 		gotoPay(){
 			console.log('gotopay')
+			uni.navigateTo({
+				url:'../pay/zhuyuanOrderDetail'
+			})
 		}
 	}
 };
