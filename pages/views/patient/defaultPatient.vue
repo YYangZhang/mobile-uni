@@ -23,7 +23,7 @@
 					</view>
 					<view style="padding-top: 6px;">
 						<label @click="radioSelect(index)" :class="item.checked?'textblue':''">
-							<radio value="item.checked" :checked="item.checked" class="form-radio" />{{item.checked?'默认就诊人':'设为默认就诊人'}}</label>
+							<radio value="item.checked" :checked="item.checked" class="form-radio" /><text class="checkd">{{item.checked?'默认就诊人':'设为默认就诊人'}}</text></label>
 					</view>
 				</view>
 
@@ -82,7 +82,7 @@
 					v.usershow = true;
 				}
 			},
-			gotoEdit(type,id) {
+			gotoEdit(type, id) {
 				// type 为状态，add 为添加  edit 为编辑
 				uni.navigateTo({
 					url: "/pages/views/patient/editPatient?params=" + type + '&id=' + id,
@@ -143,11 +143,10 @@
 
 	.newpage {
 		height: 100%;
-		border: #4CD964 1px solid;
 	}
 
 	.users {
-		height: calc(100% - 80px);
+		height: calc(100% - 60px);
 		overflow: auto;
 		padding: 10px 20px 0 20px;
 	}
@@ -157,8 +156,8 @@
 	}
 
 	.newpagebtn {
-		height: 80px;
-		padding-top: 20px;
+		height: 60px;
+		padding-top: 10px;
 	}
 
 	.usercard {
@@ -202,6 +201,12 @@
 
 	.form-radio {
 		transform: scale(0.7);
+	}
+
+	.checkd {
+		font-size: 13px;
+		position: relative;
+		top: 2px;
 	}
 
 	.textblue {

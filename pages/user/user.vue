@@ -41,7 +41,7 @@ export default {
 				{
 					title:'住院缴费记录',
 					img:'/static/img/zhuyuan.png',
-					url:'../info/test'
+					url:'../views/mypages/myZhuyuanList'
 				},
 			],
 		};

@@ -32,7 +32,7 @@
 			<view class="gridContent">
 				<uni-grid :column="4" :show-border="false" :square="false">
 					<uni-grid-item v-for="(item,j) in service.list" :key="j">
-						<view class="itemtotal" @tap="gotoMore(item.url,item.text)">
+						<view class="itemtotal" @tap="gotoMore(item.url)">
 							<view class="icondiv">
 								<text class="iconfont" :class="item.icon"></text>
 							</view>
@@ -78,26 +78,26 @@
 						list: [{
 								icon: 'iconbiaoqian',
 								text: '添加就诊人',
-								url:'../views/patient/editPatient'
+								url: '../views/patient/editPatient'
 							}, {
 								icon: 'iconorder',
 								text: '预约挂号',
-								url:'../views/orderRegister1'
+								url: '../views/orderRegister1'
 							},
 							{
 								icon: 'iconfuwutai',
 								text: '门诊缴费',
-								url:'../views/pay/menzhenPay'
+								url: '../views/pay/menzhenPay'
 							},
 							{
 								icon: 'iconrenwuqingdan',
 								text: '报告查询',
-								url:'../views/report/reportSearch'
+								url: '../views/report/reportSearch'
 							},
 							{
 								icon: 'icon1',
 								text: '门诊缴费记录',
-								url:'../views/mypages/myMenzhenList'
+								url: '../views/mypages/myMenzhenList'
 							}
 						],
 
@@ -107,18 +107,18 @@
 						list: [{
 								icon: 'iconzhuyuanqingdan',
 								text: '住院清单查询',
-								url:'../views/pay/zhuyuanPayList'
+								url: '../views/pay/zhuyuanPayList'
 							},
 							{
 								icon: 'iconbingchuang',
 								text: '住院缴费',
-								url:'../views/pay/zhuyuanOrder'
+								url: '../views/pay/zhuyuanOrder'
 							},
 
 							{
 								icon: 'iconpeizhitubiaosvg-',
 								text: '住院缴费记录',
-								url:'../info/test'
+								url: '../views/mypages/myZhuyuanList'
 							},
 						]
 					},
@@ -127,12 +127,12 @@
 						list: [{
 								icon: 'iconyiyuan',
 								text: '医院介绍',
-								url:'../info/test'
+								url: '../info/info'
 							},
 							{
 								icon: 'iconxinwen',
 								text: '新闻动态',
-								url:'../views/news'
+								url: '../views/news'
 							},
 						]
 					},
@@ -146,19 +146,22 @@
 			// 		url:"../info/test"
 			// 	})
 			// }
-			gotoMore(url,msg) {
-				if(url == '../views/patient/editPatient'){
+			gotoMore(url) {
+				if (url == '../views/patient/editPatient') {
 					console.log(url)
 					uni.navigateTo({
-						url:url + '?params=' + 'add'
+						url: url + '?params=' + 'add'
 					})
-				}else{
+				} else if (url == '../info/info') {
+					uni.switchTab({
+						url: url
+					})
+				} else {
 					uni.navigateTo({
-						// url: "../info/test?params=" + msg,
-						url:url + '?params=' + msg
+						url: url
 					})
 				}
-				
+
 			}
 
 		},
@@ -182,7 +185,6 @@
 </script>
 
 <style scoped>
-
 	/* 整体的div eg:门诊服务 */
 	.gridTotal {
 		background-color: #ffffff;

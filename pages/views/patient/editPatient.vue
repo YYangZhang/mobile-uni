@@ -1,73 +1,73 @@
 <template>
-	<view>
+	<view class="fullscreen">
 		<form @submit="formSubmit" @reset="formReset">
+			<view class="top">
+				<view style="padding: 0 10px 40px 10px;background-color: #FFFFFF;">
+					<view class="uni-form-item uni-column">
+						<view class="title">关系</view>
+						<view class="content">
+							<picker @change="relationChange" :value="form.relation" name="relation" :range="relation">
+								<view class="uni-input">{{relation[form.relation]}}</view>
+							</picker>
+							<uni-icons type="arrowdown" class="arrowdown" size="16"></uni-icons>
+						</view>
+					</view>
 
-			<view style="padding: 0 10px 40px 10px;background-color: #FFFFFF;">
+					<view class="uni-form-item uni-column">
+						<view class="title">姓名</view>
+						<view class="content">
+							<input class="uni-input" name="name" placeholder="必填" :disabled="type == 'edit'" />
+						</view>
+					</view>
 
-				<view class="uni-form-item uni-column">
-					<view class="title">关系</view>
-					<view class="content">
-						<picker @change="relationChange" :value="form.relation" name="relation" :range="relation">
-							<view class="uni-input">{{relation[form.relation]}}</view>
-						</picker>
-						<uni-icons type="arrowdown" class="arrowdown" size="16"></uni-icons>
+					<view class="uni-form-item uni-column">
+						<view class="title">身份证号</view>
+						<view class="content">
+							<input class="uni-input" name="idcard" placeholder="必填" :disabled="type == 'edit'" type="idcard" />
+						</view>
+
+					</view>
+
+					<view class="uni-form-item uni-column">
+						<view class="title">卡类型</view>
+						<view class="content">
+							<picker @change="cardTypeChange" :value="form.cardType" name="cardType" :range="array">
+								<view class="uni-input">{{array[form.cardType]}}</view>
+							</picker>
+							<uni-icons type="arrowdown" class="arrowdown" size="16"></uni-icons>
+						</view>
+					</view>
+
+					<view class="uni-form-item uni-column">
+						<view class="title">卡号码</view>
+						<view class="content">
+							<input class="uni-input" name="cardno" placeholder="必填" type="number" />
+						</view>
+					</view>
+
+					<view class="uni-form-item uni-column">
+						<view class="title">手机号</view>
+						<view class="content">
+							<input class="uni-input" name="phone" placeholder="必填" type="number" />
+						</view>
 					</view>
 				</view>
 
-				<view class="uni-form-item uni-column">
-					<view class="title">姓名</view>
-					<view class="content">
-						<input class="uni-input" name="name" placeholder="必填" :disabled="type == 'edit'" />
+				<view class="uni-form-item uni-column" style="padding: 20px 10px;border-bottom: none;">
+					<view class="title" style="width: 120px;">设为默认就诊人</view>
+					<view class="content" style="text-align: right;">
+						<switch name="default" style="transform: scale(0.7,0.7)" />
 					</view>
-				</view>
-
-				<view class="uni-form-item uni-column">
-					<view class="title">身份证号</view>
-					<view class="content">
-						<input class="uni-input" name="idcard" placeholder="必填" :disabled="type == 'edit'" type="idcard" />
-					</view>
-
-				</view>
-
-				<view class="uni-form-item uni-column">
-					<view class="title">卡类型</view>
-					<view class="content">
-						<picker @change="cardTypeChange" :value="form.cardType" name="cardType" :range="array">
-							<view class="uni-input">{{array[form.cardType]}}</view>
-						</picker>
-						<uni-icons type="arrowdown" class="arrowdown" size="16"></uni-icons>
-					</view>
-				</view>
-
-				<view class="uni-form-item uni-column">
-					<view class="title">卡号码</view>
-					<view class="content">
-						<input class="uni-input" name="cardno" placeholder="必填" type="number" />
-					</view>
-				</view>
-
-				<view class="uni-form-item uni-column">
-					<view class="title">手机号</view>
-					<view class="content">
-						<input class="uni-input" name="phone" placeholder="必填" type="number" />
-					</view>
-				</view>
-			</view>
-
-			<view class="uni-form-item uni-column" style="padding: 20px 10px;border-bottom: none;">
-				<view class="title" style="width: 120px;">设为默认就诊人</view>
-				<view class="content" style="text-align: right;">
-					<switch name="default" style="transform: scale(0.7,0.7)" />
 				</view>
 			</view>
 			<view class="uni-btn-v">
-				<button v-if="type == 'add'" type="primary" size="default" class="primarybtn" form-type="submit" @click="gotolast">添加就诊人</button>
+				<button v-if="type == 'add'" type="primary" size="default" class="primarybtn" form-type="submit">添加就诊人</button>
 				<view v-if="type == 'edit'" class="rowflex">
 					<view style="width: 50%;">
 						<button type="primary" size="default" class="regularbtn" style="width: 90%;">删除就诊人</button>
 					</view>
 					<view style="width: 50%;">
-						<button type="primary" size="default" class="primarybtn" style="width: 90%;" form-type="submit" @click="gotolast">保存</button>
+						<button type="primary" size="default" class="primarybtn" style="width: 90%;" form-type="submit">保存</button>
 					</view>
 
 
@@ -139,7 +139,9 @@
 						content: '表单数据内容：' + JSON.stringify(formdata),
 						showCancel: false
 					});
+					this.gotolast();
 				}
+
 			},
 			showToast(content) {
 				uni.showToast({
@@ -159,14 +161,14 @@
 				console.log('picker发送选择改变，携带值为', e.target.value)
 				this.form.cardType = e.target.value;
 			},
-			gotolast(){
+			gotolast() {
 				//判断从哪个页面进入，点击后返回该页面
-				 var pages = getCurrentPages();
-				 var prevPage = pages[pages.length - 2]; //上一个页面
-				 // prevPage.$vm.sh = formdata.idcard,
-				 uni.navigateBack({//返回
-				 delta: 1
-				 })
+				var pages = getCurrentPages();
+				var prevPage = pages[pages.length - 2]; //上一个页面
+				// prevPage.$vm.sh = formdata.idcard,
+				uni.navigateBack({ //返回
+					delta: 1
+				})
 			}
 		},
 		onLoad: function(params) {
@@ -179,6 +181,10 @@
 </script>
 
 <style scoped>
+	page {
+		height: 100%;
+	}
+
 	.uni-form-item .title {
 		/* padding: 10px 0; */
 		width: 80px;
@@ -210,5 +216,15 @@
 
 	.uni-input {
 		font-size: 14px;
+	}
+
+	.top {
+		height: calc(100% - 60px);
+		overflow: auto;
+	}
+
+	.uni-btn-v {
+		height: 60px;
+		padding-top: 10px;
 	}
 </style>

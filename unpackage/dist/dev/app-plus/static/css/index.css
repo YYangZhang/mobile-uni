@@ -1,6 +1,13 @@
+.flex {
+	display: -webkit-flex;
+	/* Safari */
+	display: flex;
+}
+
 .test {
 	font-size: 0.9rem;
 }
+
 
 *,
 ::after,
@@ -8,9 +15,10 @@
 	box-sizing: border-box;
 }
 
-.fullscreen{
+.fullscreen {
 	height: 100%;
 }
+
 /* swipper中img的样式 */
 .swiperimg {
 	width: 100%;
@@ -35,3 +43,83 @@
 	font-style: normal;
 	font-size: 16px;
 }
+
+.regularbtn {
+	width: 80%;
+	border-radius: 25px;
+	background-color: #FFFFFF !important;
+	color: #268efd !important;
+	line-height: 36px;
+	font-family: "Arial Negreta", Arial, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 16px;
+	border: #268efd 1px solid;
+}
+
+.rowflex {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+}
+
+.blue {
+	color: #258EFC;
+}
+
+.orange {
+	color: #F4831B;
+}
+
+.warnred {
+	color: #CC3300;
+}
+
+.txtcenter {
+	text-align: center;
+}
+
+.txtleft {
+	text-align: left;
+}
+
+.txtright {
+	text-align: right;
+}
+
+.color333 {
+	color: #333333;
+}
+
+.color666 {
+	color: #666666;
+}
+
+.color999 {
+	color: #999999;
+}
+
+.none {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	position: absolute;
+	top: 30%;
+	transform: translateY(-50%);
+}
+
+.none .iconfont {
+	font-size: 100px;
+	color: #999999;
+}
+
+
+.none-text {
+	font-family: '微软雅黑', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 15px;
+	color: #333333;
+	margin-top: 20px;
+}
+

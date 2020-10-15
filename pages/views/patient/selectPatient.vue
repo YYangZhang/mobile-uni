@@ -173,7 +173,7 @@
 	}
 
 	.users {
-		height: calc(100% - 80px);
+		height: calc(100% - 60px);
 		overflow: auto;
 		padding: 10px 20px 0 20px;
 	}
@@ -185,8 +185,8 @@
 	}
 
 	.newpagebtn {
-		height: 80px;
-		padding-top: 20px;
+		height: 60px;
+		padding-top: 10px;
 	}
 
 	.usercard {
@@ -203,6 +203,7 @@
 
 	.userInfo {
 		width: calc(100% - 40px);
+		
 	}
 
 	.userInfo text {

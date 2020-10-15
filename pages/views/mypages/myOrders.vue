@@ -229,6 +229,7 @@ page {
 	background-color: #02c8be;
 	color: #ffffff;
 	border-radius: 12px;
+	font-size: 12px;
 }
 
 .myordersp3 {

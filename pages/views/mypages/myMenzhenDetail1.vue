@@ -105,7 +105,7 @@ page {
 	border: #ffffff 1px double;
 	position: relative;
 	padding: 10px 10px 20px 10px;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 }
 .div7 {
 	padding: 10px 0;

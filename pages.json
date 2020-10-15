@@ -190,7 +190,19 @@
 				"navigationBarTitleText": "门诊缴费记录"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/views/mypages/myMenzhenDetail2",
+            "style" : {
+				"navigationBarTitleText": "门诊缴费记录"
+			}
+        }
+        ,{
+            "path" : "pages/views/mypages/myZhuyuanList",
+            "style" : {
+				"navigationBarTitleText": "住院缴费记录"
+			}
+        }
+    ],
 
 
 	// tarbar设置

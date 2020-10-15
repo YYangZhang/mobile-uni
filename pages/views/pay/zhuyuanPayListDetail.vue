@@ -7,7 +7,7 @@
 				</view>
 				<view class="div3 flex">
 					<view>
-						时间：<text style="margin-left: 6px;">2020-20-20</text>
+						时间：<text style="margin-left: 6px;">{{time}}</text>
 					</view>
 					<view>
 						<text class="iconfont iconorder" @click="open"></text>
@@ -58,6 +58,7 @@
 		data() {
 			return {
 				shownone: false,
+				time: '',
 				orderList: [{
 						name: '抽血',
 						price: '50',
@@ -102,7 +103,24 @@
 			},
 			confirm(e) {
 				console.log(e);
+				this.time = e.fulldate;
+			},
+			getNowDate() {
+				var myDate = new Date();
+				var year = myDate.getFullYear();
+				var month = myDate.getMonth() + 1;
+				if (month > 0 && month < 10) {
+					month = '0' + month;
+				}
+				var day = myDate.getDate();
+				if (day > 0 && day < 10) {
+					day = '0' + day;
+				}
+				this.time = year + '-' + month + '-' + day
 			}
+		},
+		onShow() {
+			this.getNowDate();
 		}
 	}
 </script>

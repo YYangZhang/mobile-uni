@@ -47,7 +47,7 @@
 								</uni-collapse-item>
 							</uni-collapse>
 							<view class="div10 txtright">
-								<text class="sp1">订单详情</text>
+								<text class="sp1" @click="gotoDetail2">订单详情</text>
 							</view>
 						</view>
 					</view>
@@ -142,6 +142,11 @@
 			gotoDetail1(){
 				uni.navigateTo({
 					url:'../mypages/myMenzhenDetail1'
+				})
+			},
+			gotoDetail2(){
+				uni.navigateTo({
+					url:'../mypages/myMenzhenDetail2'
 				})
 			}
 		}

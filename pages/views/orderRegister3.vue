@@ -274,6 +274,7 @@
 <style scoped>
 	page {
 		height: 100%;
+		font-size: 12px;
 	}
 
 	.content {
@@ -466,7 +467,7 @@
 		background-color: #169bd5;
 		border-radius: 14px;
 		color: #ffffff;
-		font-size: 10px;
+		font-size: 12px;
 	}
 
 	.flex-row1 {
@@ -584,6 +585,7 @@
 	.orsp20 {
 		text-align: center;
 		width: 70px;
+		font-size: 12px;
 	}
 
 	.popup1 {
